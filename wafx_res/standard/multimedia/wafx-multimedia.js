@@ -288,6 +288,7 @@ class WafxBlueImpCarousel
                   WaFxNodeData.setData(el,"obj_carousel",obj);
                   let g_template_settings  =dataCarousel.template_settings;
 
+                  
                   obj.setTitle = function (index) {
 
                         if ((this.list==undefined)||(index>=this.list.length))
@@ -327,13 +328,16 @@ class WafxBlueImpCarousel
                         contentHtml = contentHtml.replace('{{col_bg}}', g_template_settings.col_bg);
 
 
+                        let link_url  =obj.link;
+                        if (link_url.length==0)link_url="javascript:void(0)"
+
+                        contentHtml = contentHtml.replace('{{lnk}}', link_url);
+                        contentHtml = contentHtml.replace('{{lnk_target}}', obj.target_link);
+
                         titleElement.empty();
 
-                            titleElement[0].style.top=(g_template_settings.position==2)?"auto":"0px";
+                        titleElement[0].style.top=(g_template_settings.position==2)?"auto":"0px";
            
-                        //alert(titleElement[0].style)
-                        
-
 
                         WaFxNodeGeometry.setVisible(titleElement[0],b_is_empty==false);
 
@@ -345,6 +349,7 @@ class WafxBlueImpCarousel
                       }
 
                     obj.setTitle(0);
+                    
 
                   
                   
