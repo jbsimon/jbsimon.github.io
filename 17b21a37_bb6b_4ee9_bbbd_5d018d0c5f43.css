@@ -8,10 +8,10 @@ body {-webkit-nbsp-mode:normal !important;margin: 0px !important;padding:0px !im
 .comp_10{-webkit-nbsp-mode:normal;letter-spacing:normal;margin:5px !important;margin-left:0px !important;margin-top:0px !important;overflow:hidden;padding:0px !important;position:absolute;word-spacing:0px;word-wrap:break-word;z-index:50010;}
 .comp_11{-webkit-nbsp-mode:normal;letter-spacing:normal;margin:5px !important;margin-left:0px !important;margin-top:0px !important;overflow:hidden;padding:0px !important;position:absolute;word-spacing:0px;word-wrap:break-word;z-index:50015;}
 .comp_12{-webkit-nbsp-mode:normal;letter-spacing:normal;margin:5px !important;margin-left:0px !important;margin-top:0px !important;overflow:hidden;padding:0px !important;position:absolute;word-spacing:0px;word-wrap:break-word;z-index:50020;}
-.comp_13{-webkit-nbsp-mode:normal;letter-spacing:normal;margin:5px !important;margin-left:0px !important;margin-top:0px !important;overflow:hidden;padding:0px !important;position:absolute;word-spacing:0px;word-wrap:break-word;z-index:50025;}
-.comp_14{position:absolute;z-index:50030;}
-.comp_15{position:absolute;z-index:50035;}
-.comp_16{position:absolute;z-index:50040;}
+.comp_13{position:absolute;z-index:50035;}
+.comp_14{position:absolute;z-index:50040;}
+.comp_15{-webkit-nbsp-mode:normal;letter-spacing:normal;margin:5px !important;margin-left:0px !important;margin-top:0px !important;overflow:hidden;padding:0px !important;position:absolute;word-spacing:0px;word-wrap:break-word;z-index:50050;}
+.comp_16{position:absolute;z-index:50055;}
 .comp_2{background-color:#c7c7c7;position:absolute;z-index:10015;}
 .comp_3{-webkit-nbsp-mode:normal;letter-spacing:normal;margin:4px !important;margin-left:0px !important;margin-top:0px !important;overflow:hidden;padding:0px !important;position:absolute;word-spacing:0px;word-wrap:break-word;z-index:10020;}
 .comp_4{position:absolute;z-index:10030;}
@@ -25,10 +25,8 @@ body {-webkit-nbsp-mode:normal !important;margin: 0px !important;padding:0px !im
 .t10{font-weight:700;}
 .t11{text-decoration:underline;}
 .t12{font-weight:700;}
-.t13{font-weight:700;text-decoration:underline;}
-.t14{font-weight:400;}
-.t15{font-weight:400;}
-.t16{font-weight:400;}
+.t13{text-decoration:underline;}
+.t14{font-weight:700;}
 .t2{font-weight:400;}
 .t3{font-weight:400;}
 .t4{color:#ffffff;font-family:Arial;font-weight:700;}
@@ -69,15 +67,15 @@ body{background-color:#ffffff;}
 .comp_0 .wafx-img-picture{background-image:url(./wafx_res/Images/-0-1024-{4b96c3de-6b8c-4e0e-af57-70466176c74f});background-size:1024px 185px;height:185px;left:0px;top:0px;width:1024px;}
 .comp_1{background-color:#000000;border-radius:1px;height:41px;left:0px;top:184.265px;width:1024px;}
 .comp_10{height:191px;left:301.824px;top:243px;width:298px;}
-.comp_11{height:212px;left:302px;top:438px;width:298px;}
+.comp_11{height:216px;left:302px;top:438px;width:298px;}
 .comp_12{height:196px;left:302px;top:668px;width:298px;}
-.comp_13{height:286px;left:687px;top:242.799px;width:290px;}
-.comp_14{height:621px;left:566.129px;top:81.7742px;width:147px;}
-.comp_14 .wafx-img-picture{background-image:url(./wafx_res/Images/-0-147-straight-vertical-line-png-8-sales-coach-now-vertical-line-png-2000_3938.png);background-size:147px 289px;height:289px;left:0px;top:166px;width:147px;}
-.comp_15{height:220px;left:23px;top:434px;width:247px;}
-.comp_15 .wafx-img-picture{background-image:url(./wafx_res/Images/-0-247-Matt_Small.png);background-size:247px 198px;height:198px;left:0px;top:11px;width:247px;}
-.comp_16{height:208px;left:54.0469px;top:656px;width:176px;}
-.comp_16 .wafx-img-picture{background-image:url(./wafx_res/Images/-0-175-WebAcappellaFx.W20426);background-size:175px 208px;height:208px;left:0px;top:0px;width:175px;}
+.comp_13{height:220px;left:23px;top:434px;width:247px;}
+.comp_13 .wafx-img-picture{background-image:url(./wafx_res/Images/-0-247-Matt_Small.png);background-size:247px 198px;height:198px;left:0px;top:11px;width:247px;}
+.comp_14{height:208px;left:54.0469px;top:656px;width:176px;}
+.comp_14 .wafx-img-picture{background-image:url(./wafx_res/Images/-0-175-WebAcappellaFx.W20426);background-size:175px 208px;height:208px;left:0px;top:0px;width:175px;}
+.comp_15{height:196px;left:674px;top:504px;width:298px;}
+.comp_16{height:245px;left:668.872px;top:248.931px;width:240px;}
+.comp_16 .wafx-img-picture{background-image:url(./wafx_res/Images/-0-232-IMG_20200408.jpg);background-size:232px 245px;height:245px;left:4px;top:0px;width:232px;}
 .comp_2{height:115px;left:0px;top:885px;width:1024px;}
 .comp_3{height:101px;left:11px;top:899px;width:292px;}
 .comp_4{height:43px;left:887.124px;top:943.5px;width:33px;}
