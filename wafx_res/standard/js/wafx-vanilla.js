@@ -1,3 +1,73 @@
+
+class WaFxSize
+{
+  constructor(w,h) 
+   {
+    this.width = (w)?w:0;
+    this.height = (h)?h:0;
+   }
+
+   toString() 
+   {
+    return "("+this.width+" , "+this.height+")";
+   }
+
+   clone() 
+   {
+    var cl = new WaFxSize();
+    cl = Object.assign(cl, this);
+    return cl;
+   }
+   scaled(factor) 
+   {
+    var cl  = this.clone();
+    cl.width *= factor;
+    cl.height *= factor;
+    return cl;
+   }
+
+
+   scaledByExpanding(size) 
+   {
+        var useHeight;
+        var rw = (size.height) * (this.width) / (this.height);
+
+        { 
+            useHeight = (rw >= size.width);
+        }
+         var cl1 = this.clone();
+        if (useHeight) 
+        {
+            cl1.width = rw;
+            cl1.height = size.height;
+        } else 
+        {
+            cl1.height = size.width * this.height/ this.width;
+            cl1.width = size.width;
+        }
+        cl1.width = Math.round(cl1.width)
+      cl1.height = Math.round(cl1.height)
+
+        return cl1;
+    /*
+    var cl1 = this.clone();
+    var factor1 = size.width/cl1.width;
+    cl1.width = size.width;
+    cl1.height = Math.round(this.height * factor1);
+    if (cl1.height>=size.height)
+    {
+      return cl1;
+    }
+    var cl2 = this.clone();
+    var factor2 = size.height/cl2.height;
+    cl2.height = size.height;
+    cl2.width =Math.round(this.width * factor2); 
+    return cl2;
+    */
+   }
+}
+
+
 class WaFxMarket
 {
   static detectPublicFolder(KEY_STORE)
@@ -188,8 +258,46 @@ class WaFxNodeGeometry
       var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
   }
+  static getStyle(x,styleProp)
+  {
 
+      if (x.currentStyle)
+          var y = x.currentStyle[styleProp];
+      else if (window.getComputedStyle)
+          var y = document.defaultView.getComputedStyle(x,null).getPropertyValue(styleProp);
+      return y;
+  }
 }
+
+
+class WaFxSystem
+{
+
+      static getOS() 
+      {
+        var userAgent = window.navigator.userAgent,
+            platform = window.navigator.platform,
+            macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+            windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+            iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+            os = null;
+
+        if (macosPlatforms.indexOf(platform) !== -1) {
+          os = 'MAC';
+        } else if (iosPlatforms.indexOf(platform) !== -1) {
+          os = 'IOS';
+        } else if (windowsPlatforms.indexOf(platform) !== -1) {
+          os = 'WIN';
+        } else if (/Android/.test(userAgent)) {
+          os = 'ANDROID';
+        } else if (!os && /Linux/.test(platform)) {
+          os = 'LINUX';
+        }
+
+        return os;
+      }
+}
+
 
 
 class WaFxNodeData

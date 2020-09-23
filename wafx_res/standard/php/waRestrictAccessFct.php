@@ -36,7 +36,7 @@ if ($wafx_auth_valid!=true)
 			}
 			else
 			{
-				$_SESSION[$wafx_key_flash_message] = waWebMessage('limitedaccess:error authentication failed',$lang);
+				$_SESSION[$wafx_key_flash_message] = waWebMessage('WebMessage:RestrictArea:error authentication failed',$lang);
 
 			}
 	}
@@ -45,7 +45,7 @@ if ($wafx_auth_valid!=true)
 if ($wafx_auth_valid!=true)
 {
 
-	$message_welcome = waWebMessage('limitedaccess:welcome message',$lang);
+	$message_welcome = waWebMessage('WebMessage:RestrictArea:welcome message',$lang);
 
 	?>
 	<html>
@@ -60,9 +60,9 @@ if ($wafx_auth_valid!=true)
   	<p style="color:red;font-weight:bold;"><?php echo $_SESSION[$wafx_key_flash_message];?></p>
   	<p><?php echo $message_welcome;?></p>
     <form class="login-form" action="<?php echo $filename_php;?>" method="post">
-      <input name="auth_wa_identifier" type="text" maxlength="15"  value="<?php echo $wa_authorized_main_login;?>"  placeholder="<?php echo waWebMessage('limitedaccess:login placeholder',$lang);?>" required autocomplete="off" />
-      <input name="auth_wa_password" type="password" maxlength="15"  placeholder="<?php echo waWebMessage('limitedaccess:password placeholder',$lang);?>"  required autocomplete="off"/>
-      <button><?php echo waWebMessage('limitedaccess:log button label',$lang);?></button>
+      <input name="auth_wa_identifier" type="text" maxlength="15"  value="<?php echo $wa_authorized_main_login;?>"  placeholder="<?php echo waWebMessage('WebMessage:RestrictArea:login placeholder',$lang);?>" required autocomplete="off" />
+      <input name="auth_wa_password" type="password" maxlength="15"  placeholder="<?php echo waWebMessage('WebMessage:RestrictArea:password placeholder',$lang);?>"  required autocomplete="off"/>
+      <button><?php echo waWebMessage('WebMessage:RestrictArea:button label',$lang);?></button>
     </form>
   </div>
 </div>

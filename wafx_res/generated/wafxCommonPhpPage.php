@@ -2,10 +2,10 @@
 $global_webacappella_auth_chain=[
 'auth_chain'=>[
 
-],'unid'=>'e845914f_76c4_45b1_a298_9552cfc58040'
+],'unid'=>'aab9c24e_17cd_4e0a_91f5_558152a69eb3'
 ];
 $global_webacappella_messages=[
 'fr'=>[
-'limitedaccess:error authentication failed'=>'Erreur d\'authentification, verifiez l\'identifiant et le mot de passe','limitedaccess:feature not avalaible'=>'Cette fonctionnalité de restriction d\'accés n\'est pas disponible avec cette licence','limitedaccess:log button label'=>'Envoyer','limitedaccess:login placeholder'=>'Identifiant','limitedaccess:password placeholder'=>'Mot de passe','limitedaccess:welcome message'=>'Merci de vous authentifier afin d\'accéder à cette page'
+'webmessage:cookiebanner:i understand'=>'J\'accepte','webmessage:cookiebanner:learn more'=>'Plus d\'information','webmessage:cookiebanner:this website use cookie to ensure good experience on our website'=>'Ce site utilise des cookies pour vous assurer la meilleure expérience de navigation','webmessage:dialog:close'=>'Fermer','webmessage:formulary:form successfully sent !'=>'Formulaire envoyé avec succès !','webmessage:freeversion:created by webacappella'=>'Créez votre site maintenant avec WebAcappella','webmessage:freeversion:powered by webacappella, create your site now'=>'Ce site à été conçu avec le logiciel de création de sites Internet WebAcappella, Créez votre site maintenant','webmessage:page:untitled page'=>'Page sans titre','webmessage:restrictarea:button label'=>'Envoyer','webmessage:restrictarea:error authentication failed'=>'Erreur d\'authentification, verifiez l\'identifiant et le mot de passe','webmessage:restrictarea:login placeholder'=>'Identifiant','webmessage:restrictarea:password placeholder'=>'Mot de passe','webmessage:restrictarea:welcome message'=>'Merci de vous authentifier afin d\'accéder à cette page','webmessage:search:no result found !'=>'Pas de résultat trouvé !','webmessage:search:please fill criterias'=>'Rechercher sur le site','webmessage:search:search placeholder'=>'Rechercher'
 ]
 ];

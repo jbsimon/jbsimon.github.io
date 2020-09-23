@@ -526,4 +526,3 @@
       return container.offset + container.height > nextContainer.offset + nextContainer.height;
     };
   }, {}] }, {}, [1, 2, 3, 4, 5, 7, 8, 9]);
-//# sourceMappingURL=parallax-vanilla.js.map

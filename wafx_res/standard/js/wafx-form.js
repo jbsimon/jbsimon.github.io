@@ -1,5 +1,5 @@
 
-  document.wa_form_flags = {};
+document.wa_form_flags = {};
 
 
 class WafxForm
