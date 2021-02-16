@@ -125,11 +125,12 @@ class WaFxParallaxV3
 		//wafxCompFluid
 		var sizeZoneItem = new WaFxSize(w_item,h_item);
 		var size_temp =  sizeImageOriginale.clone();
-		size_temp = size_temp.scaledByExpanding(sizeZoneItem.scaled(scale));
 
-		//var computed_offset= - Math.round((size_temp.height - sizeZoneItem.height)/2);
 
-       // var offset_x = -Math.round((sizeZoneItem.width*scale-sizeZoneItem.width)/2);
+		size_temp = size_temp.scaledByExpandingAccordingWidth(sizeZoneItem.scaled(scale));
+
+
+
 
 
         var w_element = Math.round(Math.max(scale*sizeImageOriginale.width,scale*sizeZoneItem.width));
@@ -171,9 +172,9 @@ class WaFxParallaxV3
 		var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 
 		/////
-		let nodeBlockPage = document.querySelector(".blockPage");
-		let rectPage = nodeBlockPage.getBoundingClientRect();
-		let windowWidth = Math.max(rectPage.width,document.documentElement.clientWidth);
+		var nodeBlockPage = document.querySelector(".blockPage");
+		var rectPage = nodeBlockPage.getBoundingClientRect();
+		var windowWidth = Math.max(rectPage.width,document.documentElement.clientWidth);
 		var x_item = parseInt(window.getComputedStyle(this.wrapper,null).getPropertyValue("left"));
 		var x_dec = (x_item+(windowWidth-rectPage.width*scale)/2);
 
@@ -216,6 +217,7 @@ class WaFxParallaxV3
 
 	computeBgPosition(target){
 
+		//return;
 		var elm_bg = target.elm;
 
 		var scale = parseFloat(elm_bg.getAttribute('data-image-scale'));
@@ -231,7 +233,7 @@ class WaFxParallaxV3
 
 		var sizeZoneItem = new WaFxSize(w_item,h_item);
 		var size_temp =  sizeImageOriginale.clone();
-		size_temp = size_temp.scaledByExpanding(sizeZoneItem.scaled(scale));
+		size_temp = size_temp.scaledByExpandingAccordingWidth(sizeZoneItem.scaled(scale));
 
 
 
@@ -260,9 +262,9 @@ class WaFxParallaxV3
 		var x_item = parseInt(window.getComputedStyle(this.wrapper,null).getPropertyValue("left"));
 
 		
-        let nodeBlockPage = document.querySelector(".blockPage");
-        let rectPage = nodeBlockPage.getBoundingClientRect();
-     	let windowWidth = Math.max(rectPage.width,document.documentElement.clientWidth);
+        var nodeBlockPage = document.querySelector(".blockPage");
+        var rectPage = nodeBlockPage.getBoundingClientRect();
+     	var windowWidth = Math.max(rectPage.width,document.documentElement.clientWidth);
 
 		var x_dec = 0;//(x_item*scale+(windowWidth-rectPage.width*scale)/2);
 

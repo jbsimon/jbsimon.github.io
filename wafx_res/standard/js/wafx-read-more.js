@@ -44,16 +44,16 @@ class WafxReadMore
   }
   static showFullText(cl_comp)
     {
-      let screen = WaFxWindow.currentScreen();
-      let factor = screen.factor();
+      var screen = WaFxWindow.currentScreen();
+      var factor = screen.factor();
       var blockPage = document.querySelector('.blockPage'); 
       var cont = document.querySelector('.blockPagecontainer'); 
-      let div_box = document.querySelector('.'+cl_comp);
+      var div_box = document.querySelector('.'+cl_comp);
       var div_content = div_box.querySelector(".wafx-smt-txt-wrap");
       var style = window.getComputedStyle ? getComputedStyle(div_content, null) : div_content.currentStyle;
       var marginTop = parseInt(style.marginTop) || 0;
       var contenair_bg_modal = document.body;
-      let htmlModalBg = "width: 100%;height: 100%;min-height: 100%;position: fixed;top: 0;left: 0;background-color: rgba(0,0,0,.7);visibility: visible;opacity: 0;transition: opacity 0.4s;";
+      var htmlModalBg = "width: 100%;height: 100%;min-height: 100%;position: fixed;top: 0;left: 0;background-color: rgba(0,0,0,.7);visibility: visible;opacity: 0;transition: opacity 0.4s;";
       var div_bg_modal = document.createElement("div");
 
       div_bg_modal.classList.add('wafx-readmore-modal-bg');
@@ -89,7 +89,7 @@ class WafxReadMore
 
 
 
-      let paddingZone = 20;
+      var paddingZone = 20;
 
 //"wafx-readmore-bt-close"
 
@@ -149,8 +149,8 @@ class WafxReadMore
 
       
 
-        let div_box = el;
-        let div_content = div_box.querySelector(".wafx-smt-txt-wrap");
+        var div_box = el;
+        var div_content = div_box.querySelector(".wafx-smt-txt-wrap");
 
         var style = window.getComputedStyle ? getComputedStyle(div_content, null) : div_content.currentStyle;
 
@@ -162,7 +162,7 @@ class WafxReadMore
         var height_box = div_box.clientHeight;
               
         var height_content = marginTop + div_content.offsetHeight;
-        let lineHeight = parseInt(getStyle(div_content, 'line-height' ));
+        var lineHeight = parseInt(getStyle(div_content, 'line-height' ));
 
 
         div_content.style.webkitMaskImage = '';
@@ -170,22 +170,22 @@ class WafxReadMore
       // if (false)
         if (height_content + (lineHeight*0.5)>height_box)
         {
-          let list_class= div_box.getAttribute('class');
+          var list_class= div_box.getAttribute('class');
           var cl_comp = list_class.split(' ')[0].trim();
 
           //alert(div_content.tagName +" "+height_box+" "+height);
-          let height_ref = height_box;
+          var height_ref = height_box;
 
           var all_paragraphs = div_content.querySelectorAll("p,h1,h2,h3,h4,h5,h6");
 
 
           var last_paragraph = all_paragraphs[all_paragraphs.length-1];
 
-          let text_valign = getStyle(div_content,'align-self');
+          var text_valign = getStyle(div_content,'align-self');
 
-          let text_color = getStyle(last_paragraph,'color');
+          var text_color = getStyle(last_paragraph,'color');
           //alert(getStyle(div_content,'color'));
-          let html_arrow_down = "<div style='border-color:"+text_color+";' class='wafx-readmore-arrow-down'></div>";
+          var html_arrow_down = "<div style='border-color:"+text_color+";' class='wafx-readmore-arrow-down'></div>";
 
           var top_pos_arrow = height_box-lineHeight;//-marginTop;
 
@@ -196,7 +196,7 @@ class WafxReadMore
     
 
 
-          let divReadMoreLabel = document.createElement("div");
+          var divReadMoreLabel = document.createElement("div");
           divReadMoreLabel.classList.add('wafx-readmore-label');
           divReadMoreLabel.innerHTML = div_end;
           div_box.appendChild(divReadMoreLabel);
@@ -222,16 +222,16 @@ class WafxReadMore
 
           height_ref += valign_offset_y;
       
-          let maskStopPercent1 = (height_ref-2*lineHeight)/height_content;
-          let maskStopPercent2 = (height_ref-lineHeight)/height_content;
+          var maskStopPercent1 = (height_ref-2*lineHeight)/height_content;
+          var maskStopPercent2 = (height_ref-lineHeight)/height_content;
           div_content.style.webkitMaskImage = '-webkit-gradient(linear, left top, left bottom,color-stop(0.00,rgba(0,0,0,1)),color-stop('+maskStopPercent1+',rgba(0,0,0,1)),color-stop('+maskStopPercent2+',rgba(0,0,0,0)),color-stop(1.00,rgba(0,0,0,0)))';
 
           setTimeout(function()
             {
 
                     height_content = marginTop + div_content.offsetHeight;
-                    let maskStopPercent1 = (height_ref-2*lineHeight)/height_content;
-                    let maskStopPercent2 = (height_ref-lineHeight)/height_content;
+                    var maskStopPercent1 = (height_ref-2*lineHeight)/height_content;
+                    var maskStopPercent2 = (height_ref-lineHeight)/height_content;
                     div_content.style.webkitMaskImage = '-webkit-gradient(linear, left top, left bottom,color-stop(0.00,rgba(0,0,0,1)),color-stop('+maskStopPercent1+',rgba(0,0,0,1)),color-stop('+maskStopPercent2+',rgba(0,0,0,0)),color-stop(1.00,rgba(0,0,0,0)))';
 
             }, 50);

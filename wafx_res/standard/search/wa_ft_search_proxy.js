@@ -17,8 +17,8 @@ class WaFTSearchProxy
     checkInputChange (p_this)
     {
 
-      let words = IntuisphereFtSearch.splitQuery(p_this.m_input.value);
-      let words_string = words.join(' ');
+      var words = IntuisphereFtSearch.splitQuery(p_this.m_input.value);
+      var words_string = words.join(' ');
 
 
       if (p_this.m_old_value!=words_string)
@@ -158,7 +158,7 @@ class WaFTSearchProxy
         'm_current_keyid':''
       };
 
-      let words = IntuisphereFtSearch.splitQuery(query);
+      var words = IntuisphereFtSearch.splitQuery(query);
       if (words.length==0)
       {
         

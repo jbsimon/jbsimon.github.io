@@ -1,6 +1,7 @@
 
 .wa-custom-tingle-dialog {
   background:rgba(0, 0, 0, .7);
+  z-index:500000;
 
 }
 

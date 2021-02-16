@@ -83,15 +83,8 @@ class WaFtSearchGui
           onClose: function() {
             if (input1!=null)
             {
-              
                 input1.focus();
-                /*
-                var input2 = document.querySelector("#"+WaFtSearchGui.m_input_selector);
-                input1.value = input2.value; 
-                */
             }
-
-              //console.log('modal closed');
           },
           beforeClose: function() {
               // here's goes some logic
@@ -200,7 +193,7 @@ class WaFtSearchGui
       {
           for (var i=0;i<search_results.length;i++)
           {
-            let obj = search_results[i];
+            var obj = search_results[i];
 
             html +="<div class='wa-search-result-item'>";
 

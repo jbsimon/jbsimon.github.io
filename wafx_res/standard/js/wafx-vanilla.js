@@ -26,6 +26,34 @@ class WaFxSize
     return cl;
    }
 
+   scaledByExpandingAccordingWidth(size) 
+   {
+      //  var useHeight;
+      //  var rw = (size.height) * (this.width) / (this.height);
+
+
+        //    useHeight = (rw >= size.width);
+        
+         var cl1 = this.clone();
+         /*
+        if (useHeight) 
+        {
+            cl1.width = size.height * this.width/ this.height; //rw;
+            cl1.height = size.height;
+        } 
+        else 
+          */
+        {
+            cl1.height = size.width * this.height/ this.width;
+            cl1.width = size.width;
+        }
+        cl1.width = Math.round(cl1.width)
+        cl1.height = Math.round(cl1.height)
+
+        return cl1;
+   }
+
+
 
    scaledByExpanding(size) 
    {
@@ -38,32 +66,18 @@ class WaFxSize
          var cl1 = this.clone();
         if (useHeight) 
         {
-            cl1.width = rw;
+            cl1.width = size.height * this.width/ this.height; //rw;
             cl1.height = size.height;
-        } else 
+        } 
+        else 
         {
             cl1.height = size.width * this.height/ this.width;
             cl1.width = size.width;
         }
         cl1.width = Math.round(cl1.width)
-      cl1.height = Math.round(cl1.height)
+        cl1.height = Math.round(cl1.height)
 
         return cl1;
-    /*
-    var cl1 = this.clone();
-    var factor1 = size.width/cl1.width;
-    cl1.width = size.width;
-    cl1.height = Math.round(this.height * factor1);
-    if (cl1.height>=size.height)
-    {
-      return cl1;
-    }
-    var cl2 = this.clone();
-    var factor2 = size.height/cl2.height;
-    cl2.height = size.height;
-    cl2.width =Math.round(this.width * factor2); 
-    return cl2;
-    */
    }
 }
 
@@ -139,40 +153,40 @@ class WaFxWindow
 
   static windowSize()
   {
-    let body = document.body;
-    let html = document.documentElement;
+    var body = document.body;
+    var html = document.documentElement;
 
-    let width = Math.max( body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth );
-    let height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
+    var width = Math.max( body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth );
+    var height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
     return { 'width': width, 'height':height};
   }
 
   static scrollPosition()
   {
-    let x = window.pageXOffset | document.body.scrollLeft;
-    let y = window.pageYOffset | document.body.scrollTop;
+    var x = window.pageXOffset | document.body.scrollLeft;
+    var y = window.pageYOffset | document.body.scrollTop;
     return { 'left': x, 'top':y};
   }
 
   static analyzeCurrentScreen()
   {
       var cur_screen = null;
-      let  arrScreens = document.wafxScreenInfos.screens;
-      let mapScreens = {};
-      for (let i =0;i<arrScreens.length;i++)
+      var  arrScreens = document.wafxScreenInfos.screens;
+      var mapScreens = {};
+      for (var i =0;i<arrScreens.length;i++)
       {
-          let screen = arrScreens[i];
+          var screen = arrScreens[i];
           if (screen.factor==1)
           {
               mapScreens[screen.width_real] = screen;
           }
       }
 
-      let MARGIN_MEDIA_QUERY_SCREEN = 0;
-      for (let i =arrScreens.length-1;i>=0;i--)
+      var MARGIN_MEDIA_QUERY_SCREEN = 0;
+      for (var i =arrScreens.length-1;i>=0;i--)
       {
-              let screen = arrScreens[i];
-              let width_ref = screen.width_virtual + 2*MARGIN_MEDIA_QUERY_SCREEN ;
+              var screen = arrScreens[i];
+              var width_ref = screen.width_virtual + 2*MARGIN_MEDIA_QUERY_SCREEN ;
               if (window.matchMedia("(min-width:"+width_ref+"px)").matches)
               {
                 cur_screen = screen;
@@ -235,14 +249,14 @@ class WaFxNodeGeometry
 {
   static boundingRect(node)
   {
-    let bounding = node.getBoundingClientRect();
-    let right = bounding.left+bounding.width;//node.offsetWidth;
-    let bottom = bounding.top+bounding.height;//node.offsetHeight;
+    var bounding = node.getBoundingClientRect();
+    var right = bounding.left+bounding.width;//node.offsetWidth;
+    var bottom = bounding.top+bounding.height;//node.offsetHeight;
     return {'left':bounding.left,'top':bounding.top,'width':bounding.width,'height':bounding.height,'right':right,'bottom':bottom};
   }
   static setVisible(el,b)
   {
-    let st = el.style;
+    var st = el.style;
     st.display = (b)?'block':'none';
   }
 
@@ -305,8 +319,8 @@ class WaFxNodeData
       static setData(el,key,data_object) 
       {
 
-        let method_name = 'getWaFxData_'+key;
-        let prop_name = 'getWaFxProp_'+key;
+        var method_name = 'getWaFxData_'+key;
+        var prop_name = 'getWaFxProp_'+key;
 
           //el.data = {getType: function(){return this.TYPE},TYPE:data_object};
         if (el.data==undefined) el.data = {};
@@ -317,7 +331,7 @@ class WaFxNodeData
 
       static getData(el,key) 
       {
-        let method_name = 'getWaFxData_'+key;
+        var method_name = 'getWaFxData_'+key;
         if (el.data==undefined)
         {
           return null;

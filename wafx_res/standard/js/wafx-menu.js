@@ -5,11 +5,11 @@ class WaFxMenuGlobal {
     {
     	return;
     	/*
-          let idAnim1 = WaFxNodeData.getData(el,"anim_fadeout");
+          var idAnim1 = WaFxNodeData.getData(el,"anim_fadeout");
           if (idAnim1) cancelAnimationFrame(idAnim1);
           WaFxNodeData.getData(el,"anim_fadeout",false);
 
-          let idAnim2 = WaFxNodeData.getData(el,"anim_fadein");
+          var idAnim2 = WaFxNodeData.getData(el,"anim_fadein");
           if (idAnim2) cancelAnimationFrame(idAnim2);
           WaFxNodeData.getData(el,"anim_fadein",false);
           */
@@ -24,7 +24,7 @@ class WaFxMenuGlobal {
           WaFxMenuGlobal.closeAnimFade(el);
 
           el.style.opacity = val;
-          let idAnim = requestAnimationFrame(fade);
+          var idAnim = requestAnimationFrame(fade);
           WaFxNodeData.setData(el,"anim_fadein",idAnim);
         }
       })();
@@ -37,7 +37,7 @@ class WaFxMenuGlobal {
         } else {
           WaFxMenuGlobal.closeAnimFade(el);
 
-          let idAnim = requestAnimationFrame(fade);
+          var idAnim = requestAnimationFrame(fade);
           WaFxNodeData.setData(el,"anim_fadeout",idAnim);
         }
       })();
@@ -47,14 +47,14 @@ class WaFxMenuGlobal {
 	{
 		[].forEach.call(document.querySelectorAll('.wafx-menu-wrapper'), function(el) {
 
-	  		let b_sticky_div = WaFxNodeData.getData(el,"sticky_div");
+	  		var b_sticky_div = WaFxNodeData.getData(el,"sticky_div");
 	  		if (b_sticky_div)
 	  		{
-		  		let el_menu = WaFxNodeData.getData(el,"wrapper");
-		  		let nodeMenu = el_menu.querySelector('.wafx-menu');
+		  		var el_menu = WaFxNodeData.getData(el,"wrapper");
+		  		var nodeMenu = el_menu.querySelector('.wafx-menu');
 				//alert(nodeMenu.getAttribute("data-sticky-large"))
 
-				let nodeMenuClone = el.querySelector('.wafx-menu');
+				var nodeMenuClone = el.querySelector('.wafx-menu');
 				if (nodeMenu.getAttribute("data-sticky")!="true")
 				{
 					WaFxNodeGeometry.setVisible(nodeMenuClone,false);
@@ -64,7 +64,7 @@ class WaFxMenuGlobal {
 
 
 	  			{
-			  		let rBound = WaFxNodeGeometry.boundingRect(el_menu);
+			  		var rBound = WaFxNodeGeometry.boundingRect(el_menu);
 			  		if (rBound.top<-10)
 			  		{
 			  			
@@ -80,13 +80,13 @@ class WaFxMenuGlobal {
 
 			  			el.style.zIndex=100000;
 
-			  			let body = document.querySelector(".blockPage"); 
+			  			var body = document.querySelector(".blockPage"); 
 
 			  			if (nodeMenu.getAttribute("data-sticky-large"))
 			  			{
 			  				body = document.body;
 			  			}
-			  			let boundRect = WaFxNodeGeometry.boundingRect(nodeMenu);
+			  			var boundRect = WaFxNodeGeometry.boundingRect(nodeMenu);
 
 			  			el.style.height = boundRect.height+"px";
 
@@ -112,9 +112,9 @@ class WaFxMenuGlobal {
   {
   	  	
 		WaFxNodeData.setData(el,"sticky_div",b_sticky);
-		let nodeDivBg = document.createElement("DIV"); 
+		var nodeDivBg = document.createElement("DIV"); 
 
-		let html_bg = '';
+		var html_bg = '';
 
 		html_bg +="<div class=\""+cl_unid+" wafxBgMenu \">";
 		html_bg +="<div class='wafxMenuBgStaticPanel'>";
@@ -132,16 +132,16 @@ class WaFxMenuGlobal {
 		nodeDivBg.innerHTML = html_bg;
   		document.body.appendChild(nodeDivBg);
 
-  		let nodeBg = document.querySelector('.'+cl_unid+'.wafxBgMenu');
+  		var nodeBg = document.querySelector('.'+cl_unid+'.wafxBgMenu');
 
-  		let wafxMenuBackground = new WaFxMenuBackground(nodeBg);
-  		let nodeMenu = el.querySelector('.wafx-menu');
-  		let nodeHamburger = el.querySelector('.wafx-menu-bt-hamburger');
+  		var wafxMenuBackground = new WaFxMenuBackground(nodeBg);
+  		var nodeMenu = el.querySelector('.wafx-menu');
+  		var nodeHamburger = el.querySelector('.wafx-menu-bt-hamburger');
 
-  		let menu = new WaFxMenu(nodeMenu,b_sticky);
+  		var menu = new WaFxMenu(nodeMenu,b_sticky);
   		if (nodeHamburger)
   		{
-  			let ham = new WaFxMenuHamburger(nodeHamburger,wafxMenuBackground,menu);
+  			var ham = new WaFxMenuHamburger(nodeHamburger,wafxMenuBackground,menu);
   		}
   }
 }
@@ -161,12 +161,12 @@ class WaFxMenu {
 
   bindMenu()
   {
-  	let nodeFrameMainMenu = this.node.querySelector(".wafx-menu-frame-main");
+  	var nodeFrameMainMenu = this.node.querySelector(".wafx-menu-frame-main");
   	this.frame = new WaFxMenuFrame(nodeFrameMainMenu,null);
   	this.frame.mIsFloatingFrame = false;
   	this.frame.setOrientation(WaFxMenuFrame.HORIZONTAL);
 
-  	let _this = this;
+  	var _this = this;
 
 
 	  _this.children = [];
@@ -185,9 +185,9 @@ class WaFxMenuSimpleDomItem {
   	this.menu = menu;
     this.node = node;
     this.itemParent = itemParent;
-	let _this = this;
+	var _this = this;
 
-	let parNodeFrm = this.node.parentNode.querySelector('.wafx-menu-frame')
+	var parNodeFrm = this.node.parentNode.querySelector('.wafx-menu-frame')
 	
     _this.children = [];
     if (parNodeFrm!=null)
@@ -254,9 +254,9 @@ class WaFxMenuItem {
 
 	getMenuFrame() 
 	{
-		let screen = WaFxWindow.currentScreen();
+		var screen = WaFxWindow.currentScreen();
 		var el = this.node;
-		let key_data_frm = 'menu-frame';
+		var key_data_frm = 'menu-frame';
 		var frm = WaFxNodeData.getData(el,key_data_frm);
 
 		if (frm==null)
@@ -268,7 +268,7 @@ class WaFxMenuItem {
 			}
 			frm = new WaFxMenuFrame(frm_node,this);
 
-			let body = document.querySelector(".blockPagecontainer"); //blockPagecontainer  blockPage
+			var body = document.querySelector(".blockPagecontainer"); //blockPagecontainer  blockPage
 			body = document.body
 
 			
@@ -293,21 +293,21 @@ class WaFxMenuItem {
 	
 
 
-	let frm = this.getMenuFrame();
+	var frm = this.getMenuFrame();
 
 	if (frm!=null)
 	{
 		frm.wakeVisibility()
-		let st_frm = frm.node.style;
+		var st_frm = frm.node.style;
 
 		st_frm.display = 'block';
 		st_frm.position="absolute";
 		st_frm.zIndex=100000;
 
-		let x = 0;
-		let y = 0;
+		var x = 0;
+		var y = 0;
 
-		let screen = WaFxWindow.currentScreen();
+		var screen = WaFxWindow.currentScreen();
 
 
 
@@ -315,7 +315,7 @@ class WaFxMenuItem {
 		//frm.node.style.transform="scale("+screen.factor()+")"
 		var clientSize = WaFxWindow.clientSize();
 
-		let parFrame = this.parentFrame();
+		var parFrame = this.parentFrame();
 
 		var posItem = WaFxNodeGeometry.globalPosition(this.node);
 		var posParentFrame = WaFxNodeGeometry.globalPosition(parFrame.node);
@@ -325,7 +325,7 @@ class WaFxMenuItem {
 		
 		if (parFrame.orientation()==WaFxMenuFrame.HORIZONTAL)
 		{
-			let factor = screen.factor()
+			var factor = screen.factor()
 			x = posItem.left;
 			y = (posItem.top) + (parFrame.node.offsetHeight*factor);
 
@@ -342,12 +342,12 @@ class WaFxMenuItem {
 
 		var bounding = WaFxNodeGeometry.boundingRect(frm.node);
 
-		let diff_x = (bounding.right-(clientSize.width-20));
+		var diff_x = (bounding.right-(clientSize.width-20));
 		if (diff_x>0)
 		{
 			st_frm.left = (x-diff_x)+"px";
 		}
-		let diff_y = (bounding.bottom-(clientSize.height-20));
+		var diff_y = (bounding.bottom-(clientSize.height-20));
 		if (diff_y>0)
 		{
 			//st_frm.top = (y-diff_y)+"px";
@@ -365,7 +365,7 @@ class WaFxMenuItem {
 
   bindMenu()
   {
-  	let _this = this;
+  	var _this = this;
 		this.node.addEventListener('mouseover', function() 
 		{
 			_this.showFrame();
@@ -374,7 +374,7 @@ class WaFxMenuItem {
 		this.node.addEventListener('mouseout', function() 
 		{
 			//
-			let frm = _this.getMenuFrame();
+			var frm = _this.getMenuFrame();
 			if (frm!=null)
 			{
 				frm.hideDelayed();
@@ -430,9 +430,9 @@ class WaFxMenuFrame {
   bindMenu()
   {
 
-  	  let _this = this;
+  	  var _this = this;
 
-  	  let arrNodes = this.node.querySelectorAll(":scope > LI > .wafx-menu-item");
+  	  var arrNodes = this.node.querySelectorAll(":scope > LI > .wafx-menu-item");
 
 		  [].forEach.call(arrNodes, function(el) {
 
@@ -459,7 +459,7 @@ class WaFxMenuFrame {
 
   hide() 
   {
-  	  let st_frm = this.node.style;
+  	  var st_frm = this.node.style;
       st_frm.display = 'none';
   }
 
@@ -469,7 +469,7 @@ class WaFxMenuFrame {
   	{
   		return;
   	}
-  	let _this = this;
+  	var _this = this;
 
 	this.clearHideTimer();
 
@@ -520,7 +520,7 @@ class WaFxMenuHamburger {
   bind() 
   {
 
-		let _this = this;
+		var _this = this;
   		this.node.addEventListener('click', function() 
 		{
 			//
@@ -541,12 +541,12 @@ class WaFxMenuBackground {
   }
   bind() 
   {
-	let _this = this;
+	var _this = this;
 	  	document.body.appendChild(this.node);
 
 
 
-	let nodeBgMenu =  this.node;//document.querySelector('.wafxBgMenu');
+	var nodeBgMenu =  this.node;//document.querySelector('.wafxBgMenu');
 	nodeBgMenu.addEventListener('click', function(ev) 
 	{
 		_this.close()
@@ -556,19 +556,19 @@ class WaFxMenuBackground {
 
 
 
-  	//let nodeCloseBt = this.node.querySelector('.wafxCloseBgMenu');
-  	//let nodeCloseBt = this.node.querySelector('.wafxBgMenu');
+  	//var nodeCloseBt = this.node.querySelector('.wafxCloseBgMenu');
+  	//var nodeCloseBt = this.node.querySelector('.wafxBgMenu');
 
 
 
-	let nodePage =  this.node.querySelector('.wafxMenuPage');
+	var nodePage =  this.node.querySelector('.wafxMenuPage');
 	nodePage.addEventListener('click', function(ev) 
 	{
 		//alert('clic 1')
 		ev.stopPropagation() 
 	});
 
-	let nodePageBack =  this.node.querySelector('.wafxMenuPageBack');
+	var nodePageBack =  this.node.querySelector('.wafxMenuPageBack');
 	nodePageBack.addEventListener('click', function(ev) 
 	{
 		//alert('clic 1')
@@ -576,12 +576,12 @@ class WaFxMenuBackground {
 	});
 	
 	//
-	 let nodeBackBt = this.node.querySelector('.wafxMenuPageBack');
+	 var nodeBackBt = this.node.querySelector('.wafxMenuPageBack');
 	 if (nodeBackBt!=null)
 	 {
 	 	nodeBackBt.addEventListener('click', function() 
 		{
-			let contParent =_this.parentDomItemContainer();
+			var contParent =_this.parentDomItemContainer();
 			if (contParent!=null)
 			{
 				_this.showPage(contParent);
@@ -603,12 +603,12 @@ class WaFxMenuBackground {
 
   parentDomItemContainer() 
   {
-  		let firstChild = this.currentPageMenu.children[0];
-		let itemParent = firstChild.itemParent;
+  		var firstChild = this.currentPageMenu.children[0];
+		var itemParent = firstChild.itemParent;
 
 		if (itemParent!=null)
 		{
-			let itemParent2 = itemParent.itemParent;
+			var itemParent2 = itemParent.itemParent;
 			if (itemParent2!=null)
 			{
 				return itemParent2;
@@ -619,7 +619,7 @@ class WaFxMenuBackground {
 
   close() 
   {
-  	let nodePage = this.node.querySelector('.wafxMenuPage');
+  	var nodePage = this.node.querySelector('.wafxMenuPage');
   	nodePage.innerHTML = "";
   		WaFxNodeGeometry.setVisible(this.node,false);
 
@@ -630,7 +630,7 @@ class WaFxMenuBackground {
   {
 
 
-  		let st_frm = this.node.style;
+  		var st_frm = this.node.style;
 		var clientSize = WaFxWindow.windowSize();
 		st_frm.display = 'block';
 		st_frm.position="absolute";
@@ -654,21 +654,21 @@ class WaFxMenuBackground {
   showPage(pageMenu) 
   {
 
-  	//	let scrollPos = WaFxWindow.scrollPosition();
+  	//	var scrollPos = WaFxWindow.scrollPosition();
   		this.currentPageMenu = pageMenu;
-  		let _this = this;
-		let nodePage = this.node.querySelector('.wafxMenuPage');
+  		var _this = this;
+		var nodePage = this.node.querySelector('.wafxMenuPage');
 
 
 
 
-		let html = "<div class='wafxMenuPageGroupItem animated fadeInLeft' data-wow-duration='0.3s'>";
+		var html = "<div class='wafxMenuPageGroupItem animated fadeInLeft' data-wow-duration='0.3s'>";
 
 
-		let indexLinkPage = 0;
+		var indexLinkPage = 0;
 		 [].forEach.call(pageMenu.children, function(el) 
 		 {
-		 	let textItem = "";
+		 	var textItem = "";
 		 	if (el.node.firstChild!=null)
 		 	{
 		 		textItem = el.node.firstChild.textContent;//recupere le texte avant le span eventuel (arrow)
@@ -677,23 +677,23 @@ class WaFxMenuBackground {
 
 
 
-			let textDiv = "<div class='wafxMenuItemLeftPad wafxMenuLinkText wafxMenuItemVerticalPad'>"+textItem+"</div>";
+			var textDiv = "<div class='wafxMenuItemLeftPad wafxMenuLinkText wafxMenuItemVerticalPad'>"+textItem+"</div>";
 			if (el.children.length>0)
 			{
 
-				let arrowDiv = "<div class='wafxMenuLinkArrow wafxMenuItemRightPad wafxMenuItemVerticalPad'>&nbsp;&#62;</div>";
+				var arrowDiv = "<div class='wafxMenuLinkArrow wafxMenuItemRightPad wafxMenuItemVerticalPad'>&nbsp;&#62;</div>";
 
-				let classLinkPage = 'wafxMenuInternalLinkPage'+indexLinkPage;
+				var classLinkPage = 'wafxMenuInternalLinkPage'+indexLinkPage;
 
 				html += "<div class='wafxMenuLinkContainer wafxMenuPageItem  "+classLinkPage+"'>"+textDiv+arrowDiv+"</div>";
 			}
 			else
 			{
-				let classLinkSimple = 'wafxLinkInternal'+indexLinkPage;
-				let href = el.node.getAttribute("href");
+				var classLinkSimple = 'wafxLinkInternal'+indexLinkPage;
+				var href = el.node.getAttribute("href");
 				if (href==null)href="javascript:void(0)"
-				let target = el.node.getAttribute("target");
-				let onclick = el.node.getAttribute("onclick");
+				var target = el.node.getAttribute("target");
+				var onclick = el.node.getAttribute("onclick");
 				if (target==null)target="";
 				if (onclick==null)onclick="";
 
@@ -711,8 +711,8 @@ class WaFxMenuBackground {
 		 indexLinkPage = 0;
 		 [].forEach.call(pageMenu.children, function(el) 
 		 {
-			let classLinkPage = 'wafxMenuInternalLinkPage'+indexLinkPage;
-			let nodeEl = nodePage.querySelector('.'+classLinkPage);
+			var classLinkPage = 'wafxMenuInternalLinkPage'+indexLinkPage;
+			var nodeEl = nodePage.querySelector('.'+classLinkPage);
 			if (nodeEl!=null)
 			{
 				nodeEl.addEventListener('click', function() 
@@ -722,8 +722,8 @@ class WaFxMenuBackground {
 				});
 			}
 
-			let classLinkSimple = 'wafxLinkInternal'+indexLinkPage;
-			let nodeLink = nodePage.querySelector('.'+classLinkSimple);
+			var classLinkSimple = 'wafxLinkInternal'+indexLinkPage;
+			var nodeLink = nodePage.querySelector('.'+classLinkSimple);
 			if (nodeLink!=null)
 			{
 				nodeLink.addEventListener('click', function() 
@@ -741,15 +741,15 @@ class WaFxMenuBackground {
 			indexLinkPage++;	
 		});
 
-		 let nodeBackBt = this.node.querySelector('.wafxMenuPageBackText');
+		 var nodeBackBt = this.node.querySelector('.wafxMenuPageBackText');
 		 if (nodeBackBt!=null)
 		 {
-		 	let htmlBack = '';
-			let contParent =_this.parentDomItemContainer();
+		 	var htmlBack = '';
+			var contParent =_this.parentDomItemContainer();
 			if (contParent!=null)
 			{
-				let firstChild = this.currentPageMenu.children[0];
-				let itemParent = firstChild.itemParent;
+				var firstChild = this.currentPageMenu.children[0];
+				var itemParent = firstChild.itemParent;
 
 				htmlBack = "&#11013; "+itemParent.node.firstChild.textContent;;
 				
@@ -769,15 +769,15 @@ class WaFxMenuBackground {
   updateSizeMenuPage() 
   {
 
-  		let winSize = WaFxWindow.clientSize();
-  		let nodeStaticPanel = this.node.querySelector('.wafxMenuBgStaticPanel');
-  		let boundStatic = WaFxNodeGeometry.boundingRect(nodeStaticPanel);
-  		let nodeGroupItem = this.node.querySelector('.wafxMenuPageGroupItem');
-  		let stGrp = nodeGroupItem.style;
-		let stPanelStatic = nodeStaticPanel.style;
-		let screen = WaFxWindow.currentScreen();
+  		var winSize = WaFxWindow.clientSize();
+  		var nodeStaticPanel = this.node.querySelector('.wafxMenuBgStaticPanel');
+  		var boundStatic = WaFxNodeGeometry.boundingRect(nodeStaticPanel);
+  		var nodeGroupItem = this.node.querySelector('.wafxMenuPageGroupItem');
+  		var stGrp = nodeGroupItem.style;
+		var stPanelStatic = nodeStaticPanel.style;
+		var screen = WaFxWindow.currentScreen();
 
-  		let widthPanel = winSize.width -50;
+  		var widthPanel = winSize.width -50;
   		widthPanel = Math.min(widthPanel,350);
 		widthPanel = widthPanel = Math.max(widthPanel,150);
 
@@ -810,23 +810,23 @@ document.addEventListener("DOMContentLoaded", function()
 	 });
 
   [].forEach.call(document.querySelectorAll('.wafx-menu-wrapper'), function(el) {
-  		let cl_unid = el.dataset.menuUnid;
+  		var cl_unid = el.dataset.menuUnid;
 
   		WaFxMenuGlobal.initWrapper(el,cl_unid,false);
   		
 	});
 
   [].forEach.call(document.querySelectorAll('.wafx-menu-wrapper'), function(el) {
-  		let nodeMenu = el.querySelector('.wafx-menu');
-  		let nodeHamburger = el.querySelector('.wafx-menu-bt-hamburger');
-		let cl_unid = el.dataset.menuUnid;
+  		var nodeMenu = el.querySelector('.wafx-menu');
+  		var nodeHamburger = el.querySelector('.wafx-menu-bt-hamburger');
+		var cl_unid = el.dataset.menuUnid;
 	  	if (nodeMenu.getAttribute("data-sticky") || nodeHamburger.getAttribute("data-sticky"))
 	  	{
-	  		let unidSticky = cl_unid;
-	  		let nodeDivWrapper = document.createElement("DIV"); 
+	  		var unidSticky = cl_unid;
+	  		var nodeDivWrapper = document.createElement("DIV"); 
 
 
-			let body = document.body;
+			var body = document.body;
 
 			body.appendChild(nodeDivWrapper);
 
@@ -835,13 +835,13 @@ document.addEventListener("DOMContentLoaded", function()
 			nodeDivWrapper.classList.add(unidSticky, "wafx-menu-wrapper");
 
 
-	  		let nodeMenuClone = null;
+	  		var nodeMenuClone = null;
 	  		//if (nodeMenu.getAttribute("data-sticky") )
 	  		{
 	  			nodeMenuClone = nodeMenu.cloneNode(true);
 	  		}
 
-	  		let nodeHamburgerClone = null;
+	  		var nodeHamburgerClone = null;
 	  		if (nodeHamburger.getAttribute("data-sticky") )
 	  		{
 	  			nodeHamburgerClone = nodeHamburger.cloneNode(true);

@@ -34,10 +34,10 @@ class IntuisphereFtSearch
 
         query = query.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
 
-        let words = query.split(' ');
+        var words = query.split(' ');
         for (var n=0;n<words.length;n++)
         {
-          let word = words[n].trim();
+          var word = words[n].trim();
           if (word.length>0)
           {
             result.push(word);
@@ -59,7 +59,7 @@ class IntuisphereFtSearch
     search(context_search)
     {
 
-      let p_this = this;
+      var p_this = this;
 
       if (this.m_worker!==null)
       {
@@ -72,7 +72,7 @@ class IntuisphereFtSearch
 
       this.m_worker.onmessage = function(e) 
       {
-        let res= e.data[0];
+        var res= e.data[0];
 
         p_this.m_current_results = res.search_results;
         p_this.then(res);

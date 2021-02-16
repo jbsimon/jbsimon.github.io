@@ -5,10 +5,10 @@ class WafxRollOver
 {
     static closeAnimFade(el)
     {
-          let idAnim1 = WaFxNodeData.getData(el,"anim_fadeout");
+          var idAnim1 = WaFxNodeData.getData(el,"anim_fadeout");
           if (idAnim1) cancelAnimationFrame(idAnim1);
 
-          let idAnim2 = WaFxNodeData.getData(el,"anim_fadein");
+          var idAnim2 = WaFxNodeData.getData(el,"anim_fadein");
           if (idAnim2) cancelAnimationFrame(idAnim2);
     };  
     static fadeIn(el, display){
@@ -20,7 +20,7 @@ class WafxRollOver
           WafxRollOver.closeAnimFade(el);
 
           el.style.opacity = val;
-          let idAnim = requestAnimationFrame(fade);
+          var idAnim = requestAnimationFrame(fade);
           WaFxNodeData.setData(el,"anim_fadein",idAnim);
         }
       })();
@@ -33,16 +33,16 @@ class WafxRollOver
         } else {
           WafxRollOver.closeAnimFade(el);
 
-          let idAnim = requestAnimationFrame(fade);
+          var idAnim = requestAnimationFrame(fade);
           WaFxNodeData.setData(el,"anim_fadeout",idAnim);
         }
       })();
     };
     static bindPictureOver(el)
     {
-              let picture = WaFxNodeData.getData(el,"picture");
-              let mainPicture = WaFxNodeData.getData(picture,"main_picture");
-              let overPicture = WaFxNodeData.getData(picture,"over_picture");
+              var picture = WaFxNodeData.getData(el,"picture");
+              var mainPicture = WaFxNodeData.getData(picture,"main_picture");
+              var overPicture = WaFxNodeData.getData(picture,"over_picture");
               if (overPicture)
               {
                   WafxRollOver.fadeOut(mainPicture);
@@ -52,9 +52,9 @@ class WafxRollOver
     }
     static bindPictureOut(el)
     {
-              let picture = WaFxNodeData.getData(el,"picture");
-              let mainPicture = WaFxNodeData.getData(picture,"main_picture");
-              let overPicture = WaFxNodeData.getData(picture,"over_picture");
+              var picture = WaFxNodeData.getData(el,"picture");
+              var mainPicture = WaFxNodeData.getData(picture,"main_picture");
+              var overPicture = WaFxNodeData.getData(picture,"over_picture");
               if (overPicture)
               {
                 WafxRollOver.fadeIn(mainPicture);
@@ -67,13 +67,13 @@ class WafxRollOver
     {
          Array.prototype.forEach.call(document.querySelectorAll('.wafxPictureOver'), function(el){
            
-          let mainPicture = el.querySelector('.wafx-img-picture');
+          var mainPicture = el.querySelector('.wafx-img-picture');
           if (mainPicture)
           {
             WaFxNodeData.setData(mainPicture,"picture",el);
             WaFxNodeData.setData(el,"main_picture",mainPicture);
           } 
-          let overPicture = el.querySelector('.wafx-img-picture-over');
+          var overPicture = el.querySelector('.wafx-img-picture-over');
           if (overPicture)
           {
             WaFxNodeData.setData(overPicture,"picture",el);
@@ -147,13 +147,13 @@ class WafxFluidHelper
     static resizeFluidElements()
     {
       WaFxWindow.analyzeCurrentScreen();
-          let screen = WaFxWindow.currentScreen();
+          var screen = WaFxWindow.currentScreen();
 
 
-        let nodeBlockPage = document.querySelector(".blockPage");
-        let rectPage = nodeBlockPage.getBoundingClientRect();
+        var nodeBlockPage = document.querySelector(".blockPage");
+        var rectPage = nodeBlockPage.getBoundingClientRect();
        // alert(rectPage.left)
-        let windowWidth = Math.max(rectPage.width,document.documentElement.clientWidth);
+        var windowWidth = Math.max(rectPage.width,document.documentElement.clientWidth);
         [].forEach.call(document.querySelectorAll('.wafxCompFluid'), function(el) 
         {
 
@@ -184,10 +184,10 @@ class WafxPlyrAudio
           [].forEach.call(document.querySelectorAll('.wafx-audio'), function(el) {
 
 
-                let id_audio = el.getAttribute('id');
+                var id_audio = el.getAttribute('id');
                 if (id_audio!=null)
                 {
-                  let config = {
+                  var config = {
                     'controls':['play', 'progress', 'current-time', 'mute', 'volume'],
                   //  'settings':['captions', 'quality', 'loop'],
 
@@ -217,7 +217,7 @@ class WaFxSmtHelper
 
     //  
 
-      let tag = "p";
+      var tag = "p";
       for (var i=0;i<html_list.length;i++)
       {
 
@@ -339,8 +339,8 @@ class WafxBlueImpGallery
                      // alert(list_images.length)
                       list_images.sort(function (a, b) 
                       {
-                        let n1 = parseInt(a.dataset.lightboxIndex);
-                        let n2 = parseInt(b.dataset.lightboxIndex);
+                        var n1 = parseInt(a.dataset.lightboxIndex);
+                        var n2 = parseInt(b.dataset.lightboxIndex);
                         
                         if (n1 < n2) return -1;
                         if (n1 > n2) return 1;
@@ -403,16 +403,16 @@ class WafxBlueImpCarousel
 {
     static prepareDatasAccordingScreen(datas)
     {
-        let items = datas.items;
-        let screen = WaFxWindow.currentScreen();
+        var items = datas.items;
+        var screen = WaFxWindow.currentScreen();
 
 
-        for (let i=0;i<items.length;i++)
+        for (var i=0;i<items.length;i++)
         {
-          let it = items[i];
+          var it = items[i];
 
           it.href = "";
-          let resp_src = it.src[screen.sourceWidth()];
+          var resp_src = it.src[screen.sourceWidth()];
           if (resp_src!=undefined)
           {
               it.href = resp_src;
@@ -431,7 +431,7 @@ class WafxBlueImpCarousel
           }
 
       // alert(dataCarousel)
-          //let obj = slide_root.list[index];
+          //var obj = slide_root.list[index];
           var settings  =dataCarousel.template_settings;
           
           if (settings==undefined)
@@ -458,8 +458,8 @@ class WafxBlueImpCarousel
 
     static override_setTitle_V2(slide_root,index,dataCarousel)
     {
-          let settings  =dataCarousel.template_settings;
-          let obj = null;
+          var settings  =dataCarousel.template_settings;
+          var obj = null;
 
           if (dataCarousel.items==undefined)
           {
@@ -470,9 +470,9 @@ class WafxBlueImpCarousel
             obj =  dataCarousel.items[index]; 
           }
        // alert(dataCarousel.items)
-         // let obj =  dataCarousel.items[index]; 
+         // var obj =  dataCarousel.items[index]; 
    
-          let txtElement = slide_root.titleElement;
+          var txtElement = slide_root.titleElement;
 
           //alert(obj.html_v2_list)
 
@@ -480,7 +480,7 @@ class WafxBlueImpCarousel
           var node_text_wrap = cont.parentNode.querySelector(".wafx-slideshow-text-wrap");
 
           txtElement.empty();
-          let node_txt = txtElement[0];
+          var node_txt = txtElement[0];
 
 
 
@@ -490,10 +490,14 @@ class WafxBlueImpCarousel
           {
             if (obj.tagName=="A")
             {
-               html_v2 = obj.title;
+              if (obj.title.length>0)
+              {
+                  html_v2 = obj.title;
 
-               html_v2 = "<div class='wafx-smt-txt-wrap'><p class='wafx-smt-inner smt-wa-default smt-wa-last-block' style='font-size:16px;color:#ffffff;padding:20px;'>"+html_v2+"</p></div>";
-             //  html_v2 = "<div class='wafx-smt-txt-wrap'><p class='wafx-smt-inner smt-wa-default smt-wa-last-block'>"+html_v2+"</p></div>";
+                  html_v2 = "<div class='wafx-smt-txt-wrap'><p class='wafx-smt-inner smt-wa-default smt-wa-last-block' style='font-size:16px;color:#ffffff;padding:20px;'>"+html_v2+"</p></div>";
+
+              }
+
             }
            
           }
@@ -550,15 +554,15 @@ class WafxBlueImpCarousel
 
     static override_setTitle_V1(slide_root,index,dataCarousel)
     {
-          let g_template_settings  =dataCarousel.template_settings;
-          let KEY_TITLE = '{{title}}';
-          let KEY_DESC = '{{desc}}';
+          var g_template_settings  =dataCarousel.template_settings;
+          var KEY_TITLE = '{{title}}';
+          var KEY_DESC = '{{desc}}';
 
-          let obj = slide_root.list[index];
+          var obj = slide_root.list[index];
 
-          let titleElement = slide_root.titleElement
-          let customHTML = obj.custom_html;
-          let contentHtml = '';
+          var titleElement = slide_root.titleElement
+          var customHTML = obj.custom_html;
+          var contentHtml = '';
           if (customHTML.length>0)
           {
               contentHtml = customHTML;
@@ -567,7 +571,7 @@ class WafxBlueImpCarousel
           {
               contentHtml = g_template_settings.html;
           }
-          let b_is_empty = contentHtml.length==0;
+          var b_is_empty = contentHtml.length==0;
 
           if (contentHtml.includes(KEY_TITLE) || contentHtml.includes(KEY_TITLE))
           {
@@ -582,7 +586,7 @@ class WafxBlueImpCarousel
           contentHtml = contentHtml.replace('{{col_text}}', g_template_settings.col_text);
           contentHtml = contentHtml.replace('{{col_bg}}', g_template_settings.col_bg);
 
-          let link_url  =obj.link;
+          var link_url  =obj.link;
           if (link_url.length==0)link_url="javascript:void(0)"
 
           contentHtml = contentHtml.replace('{{lnk}}', link_url);
@@ -603,10 +607,10 @@ class WafxBlueImpCarousel
     static reload()
     {
           [].forEach.call(document.querySelectorAll('.wafx-carousel'), function(el) {
-          let id_carousel = el.getAttribute('id');
+          var id_carousel = el.getAttribute('id');
           if (id_carousel!=null)
           {
-                  let dataCarousel = WafxBlueImpCarousel.prepareDatasAccordingScreen(document.wafxCarouselDatas[id_carousel]);
+                  var dataCarousel = WafxBlueImpCarousel.prepareDatasAccordingScreen(document.wafxCarouselDatas[id_carousel]);
 
                   var obj = WaFxNodeData.getData(el,"obj_carousel");
 

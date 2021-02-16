@@ -43,12 +43,12 @@ class WafxFormV2InputFile
 	{
  		if (el.type=="file")
  		{
- 			let maxUpload = el.dataset.maxUpload;
+ 			var maxUpload = el.dataset.maxUpload;
 
  			var total_size = 0;
  			for (var i_file=0;i_file<el.files.length;i_file++)
  			{
- 				let file = el.files[i_file];
+ 				var file = el.files[i_file];
 				total_size += file.size;
  			}
  			if (total_size > maxUpload)
@@ -97,12 +97,12 @@ class WafxFormV2
     }
 	static send(id_form)
     {	
-        let b_valid = true;
-    	let settings = WafxFormV2.m_map_settings[id_form];
+        var b_valid = true;
+    	var settings = WafxFormV2.m_map_settings[id_form];
 
 
 
-    	let formData = new FormData();
+    	var formData = new FormData();
     	formData.append("wafx_lang",WaPageContext.lang);
 
     	//formData.append("MAX_FILE_SIZE",1000);
@@ -117,11 +117,11 @@ class WafxFormV2
 	        return 0;
 	      });
 
-    	for (let el of list_inputs)
+    	for (var el of list_inputs)
 	     { 
-	     	let name = el.getAttribute("name");
+	     	var name = el.getAttribute("name");
 	     	{
-	     		let valField ="";
+	     		var valField ="";
 	     		if (el.type=="file")
 	     		{
 	     			valField = el.files[0];
@@ -205,11 +205,11 @@ class WafxFormV2
 		document.wa_form_v2_flags[id_form] = true;
 
 
-    	for (let el of list_inputs)
+    	for (var el of list_inputs)
 	     { 
-	     	let name = el.getAttribute("name");
+	     	var name = el.getAttribute("name");
 	     	
-     		let valField ="";
+     		var valField ="";
      		if (el.type=="radio")
      		{
      			el.checked = false;
@@ -246,10 +246,10 @@ class WafxFormV2
 		 })
 		  .then(function(text) {
 		  	
-		    let json = JSON.parse(text);
+		    var json = JSON.parse(text);
 		    if (json.success)
 		    {
-		    	let success_message = settings.success_message;
+		    	var success_message = settings.success_message;
 		    	if (success_message.length==0)success_message="Sent successfully !";
 		    	WafxFormV2.alert(success_message)
 		    }

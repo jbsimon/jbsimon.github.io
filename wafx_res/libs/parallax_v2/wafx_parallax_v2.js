@@ -211,9 +211,9 @@ class WaFxParallax
 			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 
 			/////
-			        let nodeBlockPage = document.querySelector(".blockPage");
-       		 let rectPage = nodeBlockPage.getBoundingClientRect();
-     		let windowWidth = Math.max(rectPage.width,document.documentElement.clientWidth);
+			        var nodeBlockPage = document.querySelector(".blockPage");
+       		 var rectPage = nodeBlockPage.getBoundingClientRect();
+     		var windowWidth = Math.max(rectPage.width,document.documentElement.clientWidth);
 		var x_item = parseInt(window.getComputedStyle(this.wrapper,null).getPropertyValue("left"));
 			var x_dec = (x_item+(windowWidth-rectPage.width*scale)/2);
 
@@ -347,9 +347,9 @@ class WaFxParallax
 		var x_item = parseInt(window.getComputedStyle(this.wrapper,null).getPropertyValue("left"));
 
 		
-        let nodeBlockPage = document.querySelector(".blockPage");
-        let rectPage = nodeBlockPage.getBoundingClientRect();
-     	let windowWidth = Math.max(rectPage.width,document.documentElement.clientWidth);
+        var nodeBlockPage = document.querySelector(".blockPage");
+        var rectPage = nodeBlockPage.getBoundingClientRect();
+     	var windowWidth = Math.max(rectPage.width,document.documentElement.clientWidth);
 
 		var x_dec = (x_item+(windowWidth-rectPage.width*scale)/2) ;
 

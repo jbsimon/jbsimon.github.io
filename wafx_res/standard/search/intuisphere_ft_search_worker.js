@@ -6,11 +6,11 @@ importScripts('intuisphere_ft_search.js');
 onmessage = function(e) {
 
 	var data = e.data[0];
-	let code = data.code;
-	let param = data.param;
+	var code = data.code;
+	var param = data.param;
 
   	var searchWorker = new SearchWorker(param);
-	let res = searchWorker.loadJson()
+	var res = searchWorker.loadJson()
 
 
 
@@ -61,7 +61,7 @@ class SearchWorker
 	doSearch(json_datas)
 	{
 
-		let b_slow = false;
+		var b_slow = false;
 		//alert('do serach')
 		if (b_slow)
 		{
@@ -74,23 +74,23 @@ class SearchWorker
 
 
 	
-		let op = IntuisphereFtSearch.OPERATOR_AND;
+		var op = IntuisphereFtSearch.OPERATOR_AND;
 
-		let words = IntuisphereFtSearch.splitQuery(this.m_query);
+		var words = IntuisphereFtSearch.splitQuery(this.m_query);
 
 		var arrayFinal = [];
 		for (var n=0;n<words.length;n++)
 		{
-			let word = words[n].trim();
+			var word = words[n].trim();
 			if (word.length>0)
 			{
 				var results2 = [];
-				let results = this.doSearchWithWord(json_datas,word);
+				var results = this.doSearchWithWord(json_datas,word);
 				for (var i=0;i<results.length;i++)
 				{
-					let ind = results[i];
+					var ind = results[i];
 
-					let arr = json_datas.index_words[ind];
+					var arr = json_datas.index_words[ind];
 					results2 = results2.concat(arr);
 				}
 				var unique_results2 = Array.from( new Set(results2) );
@@ -132,12 +132,12 @@ class SearchWorker
 
 	internal_almostMatch(w1,w2)
 	{
-		let len1 = w1.length;
-		let len2 = w2.length;
-		let diff = Math.abs(len1-len2);
+		var len1 = w1.length;
+		var len2 = w2.length;
+		var diff = Math.abs(len1-len2);
 		if (diff<3)
 		{
-			let lenMin = Math.min(len1,len2);
+			var lenMin = Math.min(len1,len2);
 			if (lenMin>2)
 			{
 				w1 = w1.substring(0,lenMin);
@@ -170,10 +170,10 @@ class SearchWorker
 	internal_CreateSearchResultsWithWord(json_datas,word,cmp)
 	{
 		var results = [];
-		let map_words = json_datas.map_words;
+		var map_words = json_datas.map_words;
 		for (var i=0;i<map_words.length;i++)
 		{
-			let w = map_words[i];
+			var w = map_words[i];
 			if (this.internal_compareWord(w,word,cmp))
 			{
 				results.push(i);

@@ -4,8 +4,8 @@ class WaFxMFrameExt {
   	{
   		WaFxMFrameExt.m_last_height = -1;
 
-  		let elems = Array.from(document.querySelectorAll("[class^='comp_']"));
-  		let elems2 = Array.from(document.querySelectorAll(".wafxBanner"));
+  		var elems = Array.from(document.querySelectorAll("[class^='comp_']"));
+  		var elems2 = Array.from(document.querySelectorAll(".wafxBanner"));
 		if (elems2!=null)
 		{
 			elems = elems.concat(elems2);
@@ -33,25 +33,25 @@ class WaFxMFrameExt {
 	static checkSizeFrame() 
   	{
 
-  		let wrapper = document.querySelector('.wafxWrapper_ecwid');
+  		var wrapper = document.querySelector('.wafxWrapper_ecwid');
 
   		if (wrapper==null)
   		{
   			//alert("no ecwid")
   			return;
   		}
-  		let rBound = WaFxNodeGeometry.boundingRect(wrapper);
-  		let pos = WaFxNodeGeometry.globalPosition(wrapper);
+  		var rBound = WaFxNodeGeometry.boundingRect(wrapper);
+  		var pos = WaFxNodeGeometry.globalPosition(wrapper);
 
-  		let currentHeight = rBound.height / WaFxWindow.currentScreen().factor();
+  		var currentHeight = rBound.height / WaFxWindow.currentScreen().factor();
   		//	alert('check '+rBound.top+"  "+rBound.height)
   		if (WaFxMFrameExt.m_last_height  != currentHeight)
   		{
   			WaFxMFrameExt.m_last_height = currentHeight;
 
 
-  			let elems = Array.from(document.querySelectorAll("[class^='comp_']"));
-  			let elems2 = Array.from(document.querySelectorAll(".wafxBanner"));
+  			var elems = Array.from(document.querySelectorAll("[class^='comp_']"));
+  			var elems2 = Array.from(document.querySelectorAll(".wafxBanner"));
 
 //  			alert(elems2.length);
   			if (elems2!=null)
@@ -61,13 +61,13 @@ class WaFxMFrameExt {
 			  [].forEach.call(elems, function(el) {
 
 
-			  		let wrapper_dummy  = el.querySelector('.wafxWrapper_ecwid');
+			  		var wrapper_dummy  = el.querySelector('.wafxWrapper_ecwid');
 
 			  		if (wrapper_dummy==null)
 			  		{
-			  			let pos_el = WaFxNodeGeometry.globalPosition(el);
+			  			var pos_el = WaFxNodeGeometry.globalPosition(el);
 
-						let initial_y = WaFxNodeData.getData(el,"wafx_initial_y");
+						var initial_y = WaFxNodeData.getData(el,"wafx_initial_y");
 						if (initial_y==null)
 						{
 							initial_y = pos_el.top;
@@ -76,7 +76,7 @@ class WaFxMFrameExt {
 
 						if (initial_y>pos.top)
 						{
-							let offset = (initial_y-pos.top);
+							var offset = (initial_y-pos.top);
 							el.style.top=(pos.top + offset +WaFxMFrameExt.m_last_height)+"px";
 						}
 			  		}

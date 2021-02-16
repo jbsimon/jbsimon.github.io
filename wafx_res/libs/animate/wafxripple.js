@@ -9,7 +9,7 @@ function WaFxRippleEffect(element){
 WaFxRippleEffect.prototype = {
     run: function(event){
 
-        let factor = WaFxWindow.currentScreen().factor();
+        var factor = WaFxWindow.currentScreen().factor();
     
 
         var ripplerContainer = this.element.querySelector('.ripple-container');
@@ -28,7 +28,7 @@ WaFxRippleEffect.prototype = {
         
         this.element.appendChild(rippleContainer);
 
-        let scroll  = WaFxWindow.scrollPosition();
+        var scroll  = WaFxWindow.scrollPosition();
 
         var offsetInfo = this.element.getBoundingClientRect();
         var maxLength = offsetInfo.width > offsetInfo.height ? offsetInfo.width : offsetInfo.height;

@@ -17,18 +17,18 @@ class WafxForm
     		return;
     	}
 
-    	let b_valid = true;
-    	let settings = WafxForm.m_map_settings[id_form];
-    	let fields = settings.fields;
-    	let formData = new FormData();
+    	var b_valid = true;
+    	var settings = WafxForm.m_map_settings[id_form];
+    	var fields = settings.fields;
+    	var formData = new FormData();
     	formData.append("wafx_lang",WaPageContext.lang);
-    	let arr = document.querySelectorAll('.wafx-form-input');
-    	for (let el of arr)
+    	var arr = document.querySelectorAll('.wafx-form-input');
+    	for (var el of arr)
 	     { 
-	     	let name = el.getAttribute("name");
+	     	var name = el.getAttribute("name");
 	     	if (fields.includes(name))
 	     	{
-	     		let valField ="";
+	     		var valField ="";
 	     		if (el.type=="radio")
 	     		{
 	     			if (el.checked) valField = el.value;
@@ -67,12 +67,12 @@ class WafxForm
 		document.wa_form_flags[id_form] = true;
 
 
-    	for (let el of arr)
+    	for (var el of arr)
 	     { 
-	     	let name = el.getAttribute("name");
+	     	var name = el.getAttribute("name");
 	     	if (fields.includes(name))
 	     	{
-	     		let valField ="";
+	     		var valField ="";
 	     		if (el.type=="radio")
 	     		{
 	     			el.checked = false;
@@ -103,10 +103,10 @@ class WafxForm
 		 })
 		  .then(function(text) {
 		  	
-		    let json = JSON.parse(text);
+		    var json = JSON.parse(text);
 		    if (json.success)
 		    {
-		    	let success_message = settings.success_message;
+		    	var success_message = settings.success_message;
 		    	if (success_message.length==0)success_message="Sent successfully !";
 		    	WafxForm.alert(success_message)
 		    }
